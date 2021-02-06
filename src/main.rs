@@ -162,7 +162,6 @@ impl Game {
             }
             tracker = 0;
         }
-        //fix this!!
         if rows_cleared > 0 {
             for i in (1..ROWS - rows_cleared).rev() {
                 for j in 1..COLS {
@@ -179,8 +178,8 @@ impl Game {
     fn new_curr(&mut self) {
         //random block
         let mut rng = rand::thread_rng();
-        //self.curr.bl = Blocks::from_u32(rng.gen_range(1..8));
-        self.curr.bl = Blocks::I;
+        self.curr.bl = Blocks::from_u32(rng.gen_range(1..8));
+        //self.curr.bl = Blocks::I;
         let mid: i32 = (COLS / 2).try_into().unwrap();
         match self.curr.bl {
             Blocks::I => {
